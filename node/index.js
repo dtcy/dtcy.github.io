@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 80; // PORT 환경 변수가 설정되어 있으면 그 값을 사용하고, 그렇지 않으면 포트 80을 사용합니다.
+const port = process.env.PORT || 8080; // PORT 환경 변수가 설정되어 있으면 그 값을 사용하고, 그렇지 않으면 포트 80을 사용합니다.
 const cors = require('cors');
 app.use(cors());
 
