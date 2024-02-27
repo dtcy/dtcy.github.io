@@ -1,17 +1,25 @@
+
 const express = require('express');
 const app = express();
-const port = 3000;
 
-// 미들웨어 등록
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-// 라우트 설정
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.listen(8080, ()=>{
+    console.log('fuckoff!')
 });
 
-// 서버 실행
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname + '/app.html')
+})
+
+app.get('/animals/:name',(req,res)=>{
+
+    const {name} = req.params;
+    if(name === 'dog'){
+        res.json({'sound':'bark'});
+    }
+    else if( name == 'cat'){
+        res.json ({'sound':'miyo'});
+    }
+    }
+
+)
