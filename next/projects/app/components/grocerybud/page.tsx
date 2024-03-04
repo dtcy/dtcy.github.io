@@ -48,8 +48,6 @@ export default function Page() {
     );
   };
 
-  const editItem = () => {};
-
   return (
     <div>
       <div className="wrap">
@@ -62,8 +60,20 @@ export default function Page() {
         </div>
         <div className="output-box">
           {items.map((item, index) => (
-            <p key={index} className={item.isChecked ? "lineStroke" : ""}>
-              {item.item}
+            <p key={index}>
+              <input
+                id="input-item"
+                className={item.isChecked ? "lineStroke" : ""}
+                type="text"
+                value={item.item}
+                onChange={(e) => {
+                  if (e.target.value.length > 0) {
+                    const updatedItems = [...items];
+                    updatedItems[index].item = e.target.value;
+                    setItems(updatedItems);
+                  }
+                }}
+              />
               <span>
                 <button onClick={() => delItem(index)}>x</button>
               </span>
