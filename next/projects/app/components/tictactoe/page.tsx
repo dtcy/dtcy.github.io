@@ -3,7 +3,7 @@ import React from "react";
 import Square from "./Square";
 import "./main.css";
 import { useState } from "react";
-export default function page() {
+export default function Page() {
   const [state, setState] = useState(Array(9).fill(null));
 
   function calculateWinner() {

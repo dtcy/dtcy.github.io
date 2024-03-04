@@ -1,7 +1,7 @@
 "use client";
 import "./page.css";
 import { useState, useRef } from "react";
-export default function page() {
+export default function Page() {
   const inputRef = useRef(null);
   const [items, setItems] = useState<string[]>([]);
   const clearItem = () => {

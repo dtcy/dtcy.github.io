@@ -29,7 +29,7 @@ export default function App() {
       <div className="wrap">
         <div className="display">current time{currTime}</div>
         <div className="countdown">
-          <p>Countdown til 6th Jun 2024:{countTime}</p>
+          <p>Countdown til 6th Jun 2024: {countTime}</p>
         </div>
       </div>
     </div>
