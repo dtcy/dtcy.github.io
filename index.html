@@ -11,8 +11,7 @@
     <script>
       // PDF 파일 로드 및 표시
       const canvas = document.getElementById("pdf-viewer");
-      const url =
-        "https://www.dropbox.com/scl/fi/amvh90u8xvpv5a79s3yo1/YoungMatias-CPO-compressed.pdf?rlkey=clffn1jatpb7sm1mv0zuzobn5&dl=0"; // PDF 파일 경로
+      const url = "cv.pdf"; // PDF 파일 경로
       pdfjsLib.getDocument(url).promise.then((pdf) => {
         pdf.getPage(1).then((page) => {
           const viewport = page.getViewport({ scale: 1.5 });
