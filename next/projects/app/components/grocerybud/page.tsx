@@ -1,39 +1,44 @@
 "use client";
 import "./page.css";
 import { useState, useRef } from "react";
+
 export default function Page() {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [items, setItems] = useState<string[]>([]);
+
   const clearItem = () => {
     setItems([]);
   };
+
   const addItem = () => {
-    const newItem = {
-      id: Date.now(),
-      item: inputRef.current.value,
-      isChecked: false,
-    };
+    if (inputRef.current && inputRef.current.value.trim() !== "") {
+      const newItem = {
+        id: Date.now(),
+        item: inputRef.current.value,
+        isChecked: false,
+      };
 
-    setItems((prevItems) => [...prevItems, newItem]);
+      setItems((prevItems) => [...prevItems, newItem]);
 
-    inputRef.current.value = "";
-  };
-  const delItem = (index) => {
-    console.log(items);
-
-    const updated = [...items];
-    updated.splice(index, 1);
-    setItems(updated);
+      inputRef.current.value = "";
+    }
   };
 
-  const handleKeyPress = (event) => {
-    // 만약 눌린 키가 Enter 키(키 코드 13)이면
+  const delItem = (index: number) => {
+    setItems((prevItems) => {
+      const updated = [...prevItems];
+      updated.splice(index, 1);
+      return updated;
+    });
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      // submitButton 클릭 이벤트 발생
       addItem();
     }
   };
-  const handleCheck = (index) => {
+
+  const handleCheck = (index: number) => {
     setItems((prevItems) =>
       prevItems.map((item, i) =>
         i === index ? { ...item, isChecked: !item.isChecked } : item
