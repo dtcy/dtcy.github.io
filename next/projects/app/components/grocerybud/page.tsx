@@ -4,7 +4,9 @@ import { useState, useRef } from "react";
 
 export default function Page() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [items, setItems] = useState<string[]>([]);
+  const [items, setItems] = useState<
+    { id: number; item: string; isChecked: boolean }[]
+  >([]);
 
   const clearItem = () => {
     setItems([]);
@@ -41,7 +43,7 @@ export default function Page() {
   const handleCheck = (index: number) => {
     setItems((prevItems) =>
       prevItems.map((item, i) =>
-        i === index ? { ...item, isChecked: !item.isChecked } : item
+        i === index ? { ...item, isChecked: !item.isChecked } : { ...item }
       )
     );
   };
