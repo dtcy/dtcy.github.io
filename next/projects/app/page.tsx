@@ -1,9 +1,6 @@
-import React from 'react'
-
+// import RootLayout from "./layout";
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  return <div>Next</div>;
+};
 
-export default Home
+export default Home;
