@@ -32,7 +32,7 @@ function Test() {
         [...fileInputEl.files].map(fileToGenerativePart)
       );
 
-      const prompt = "what is in the image?";
+      const prompt = "이미지 관련해서 마케팅 카피를 만들어줘";
       const result = await model.generateContent([prompt, ...imageParts]);
       const response = await result.response;
       const text = await response.text();

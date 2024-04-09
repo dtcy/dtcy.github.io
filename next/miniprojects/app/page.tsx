@@ -30,6 +30,10 @@ export default function page() {
         {" "}
         <button>Gemini</button>
       </Link>
+      <Link href="/image-upload">
+        {" "}
+        <button>Image Upload</button>
+      </Link>
     </nav>
   );
 }
