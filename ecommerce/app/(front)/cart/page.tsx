@@ -1,17 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { useCart } from "@/app/contexts/CartContext";
+import { Product } from "@/app/type/ProductModel";
 
 const CartPage = () => {
   const { cart } = useCart();
-
+  console.log(cart);
+  console.log("test");
   return (
     <div>
       <h2>Shopping Cart</h2>
       {Object.keys(cart).length > 0 ? (
         <div>
-          {Object.keys(cart).map((key: string) => (
-            <div key={key}>
+          {Object.keys(cart).map((key, index) => (
+            <div key={index}>
               <span>{key}</span>: <span>{cart[key].length}</span>
             </div>
           ))}

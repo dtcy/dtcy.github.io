@@ -9,7 +9,7 @@ import AddReview from "@/app/components/review/AddReview";
 import ShowReviews from "@/app/components/review/ShowReviews";
 const ProductDetails = ({ params }: { params: { slug: string } }) => {
   const { addToCart } = useCart();
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -21,7 +21,6 @@ const ProductDetails = ({ params }: { params: { slug: string } }) => {
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           setProduct(doc.data());
-          console.log(doc.id);
         });
       } catch (error) {
         console.error("Error fetching product: ", error);
@@ -52,7 +51,6 @@ const ProductDetails = ({ params }: { params: { slug: string } }) => {
           src={product.image}
           width={300}
           height={300}
-          layout="fixed"
         />
         <p>{product?.name ?? "no name"}</p>
         <p>{product.price} USD</p>

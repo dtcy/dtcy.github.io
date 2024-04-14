@@ -1,15 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../my-page/FirebaseAppConfig";
-import { useProduct } from "@/app/contexts/ProductContext";
-import { ProductInfo } from "@/app/contstans/ProductInfo";
 
 function Page() {
-  const { productId, setProductId } = useProduct();
-  // json 으로 묶어서 관리
-  const [productInfo, setProductInfo] = useState({ ProductInfo });
   const [productName, setProductName] = useState("");
   const [productSlug, setProductSlug] = useState("");
   const [productCategory, setProductCategory] = useState("");
@@ -18,9 +13,6 @@ function Page() {
   const [productBrand, setProductBrand] = useState("");
   const [productDesc, setProductDesc] = useState("");
   const [productCountInStock, setProductCountInStock] = useState(0);
-  const [productRating, setProductRating] = useState(0);
-  const [reviewTitle, setReviewTitle] = useState("");
-  const [reviewContent, setReviewContent] = useState("");
 
   const registerProduct = async () => {
     try {
@@ -33,13 +25,7 @@ function Page() {
         brand: productBrand,
         desc: productDesc,
         countInStock: productCountInStock,
-        rating: productRating,
-        review: {
-          title: reviewTitle,
-          content: reviewContent,
-        },
       });
-      setProductId(docRef.id);
       console.log("Product written with ID: ", docRef.id);
     } catch (e) {
       console.error(e);
