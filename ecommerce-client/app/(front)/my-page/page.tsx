@@ -31,7 +31,7 @@ const Page = () => {
 
           const querySnapshot = await getDocs(cardsCollectionRef);
 
-          const fetchedCards:any[] = [];
+          const fetchedCards: any[] = [];
           querySnapshot.forEach((doc) => {
             const data = doc.data();
             const card = { id: doc.id, groupName: data.groupName };
@@ -60,7 +60,7 @@ const Page = () => {
     error,
   } = useAuth();
 
-  const handleDeleteCard = async (cardId:any{}) => {
+  const handleDeleteCard = async (cardId: any) => {
     try {
       const userId = userState.uid;
       const db = getFirestore();
