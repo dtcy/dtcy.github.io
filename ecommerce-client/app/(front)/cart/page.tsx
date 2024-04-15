@@ -4,13 +4,15 @@ import { useCart } from "@/app/contexts/CartContext";
 const CartPage = () => {
   const { cart } = useCart();
   console.log(Object.keys(cart));
+
   return (
     <div>
       {Object.keys(cart).length > 0 ? (
         <div>
-          {Object.keys(cart).map((key) => (
+          {Object.entries(cart).map(([key, items]) => (
             <div key={key}>
-              <span>{key}</span>:<span>{cart[key].length}</span>
+              <span>{key}</span>:
+              <span>{Array.isArray(items) ? items.length : ""}</span>
             </div>
           ))}
         </div>
@@ -19,16 +21,16 @@ const CartPage = () => {
       )}
       <p>
         Total items:{" "}
-        {cart
-          ? Object.values(cart).reduce(
-              (acc, category) => acc + category.length,
-              0
-            )
-          : 0}
+        {cart &&
+          Object.values(cart).reduce(
+            (acc, category) =>
+              Array.isArray(category) ? acc + category.length : acc,
+            0
+          )}
       </p>
 
       <div>
-        <button onClick={onClickPayment}>Check out</button>
+        <button>Check out</button>
       </div>
     </div>
   );
