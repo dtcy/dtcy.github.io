@@ -32,10 +32,6 @@ export default function RootLayout({
             </CartProvider>
           </AuthStateProvider>
         </ProductProvider>
-        <script
-          type="text/javascript"
-          src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"
-        ></script>
       </body>
     </html>
   );
