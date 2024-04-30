@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "./(front)/my-page/FirebaseAppConfig";
-import ProductItem from "./components/product/ProductItem";
-import ContactUs from "./components/Contactus/ContactUs";
+import { db } from "../(front)/my-page/FirebaseAppConfig";
+import ProductItem from "../components/product/ProductItem";
+import ContactUs from "../components/Contactus/ContactUs";
 function ProductPage() {
   const [products, setProducts] = useState([]);
 
