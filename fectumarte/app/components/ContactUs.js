@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/app/contexts/AuthContext";
+import { db } from ".././contexts/AuthContext";
 function ContactUs() {
   const [email, setEmail] = useState("");
   const [wA, setWA] = useState("");

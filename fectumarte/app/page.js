@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUs from "@/app/components/ContactUs";
+import ContactUs from "./components/ContactUs";
 function page() {
   return (
     <div>
