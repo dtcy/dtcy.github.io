@@ -1,9 +1,0 @@
-.card {
-  opacity: 0;
-  height: 100px;
-  margin: 1rem;
-}
-.show {
-  opacity: 1;
-  transform: translateX(0);
-}
